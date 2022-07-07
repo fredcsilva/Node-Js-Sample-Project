@@ -2,12 +2,12 @@ FROM node
 WORKDIR /usr/src/app
 COPY [ "server.js","index.html","package.json","./" ]
 
-CMD ["npm", "config", "rm proxy"]
-CMD ["npm", "config", "rm https-proxy"]
-CMD ["npm", "config", "--global", "rm proxy"]
-CMD ["npm", "config", "--global", "rm https-proxy"]
-CMD ["npm", "config", "set registry http://registry.npmjs.org"]
-CMD ["npm", "config", "set strict-ssl false"]
+RUN ["npm", "config", "rm proxy"]
+RUN ["npm", "config", "rm https-proxy"]
+RUN ["npm", "config", "--global", "rm proxy"]
+RUN ["npm", "config", "--global", "rm https-proxy"]
+RUN ["npm", "config", "set registry http://registry.npmjs.org"]
+RUN ["npm", "config", "set strict-ssl false"]
 
 RUN npm install ;\
     mkdir data
